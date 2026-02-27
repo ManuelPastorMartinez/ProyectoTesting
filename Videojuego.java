@@ -1,22 +1,25 @@
 package org.example;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 
 public class Videojuego {
+    private static int contadorId = 1;
+
     private String id_videojuego;
     private String nombre;
     private String plataforma;
     private double precio;
-    private Date fecha_creacion;
+    private LocalDate fecha_creacion;
     private String empresa;
     private String tipo_videojuego;
     private int stock;
-    private ArrayList<String>listaVideojuegos;
+    protected static ArrayList<Videojuego>listaVideojuegos = new ArrayList<>();
 
-    public Videojuego(String id_videojuego, String nombre, String plataforma, double precio, Date fecha_creacion, String empresa, String tipo_videojuego, int stock) {
-        this.id_videojuego = id_videojuego;
+    public Videojuego(String nombre, String plataforma, double precio, LocalDate fecha_creacion, String empresa, String tipo_videojuego, int stock) {
+        setId_videojuego();
         this.nombre = nombre;
         this.plataforma = plataforma;
         this.precio = precio;
@@ -24,15 +27,15 @@ public class Videojuego {
         this.empresa = empresa;
         this.tipo_videojuego = tipo_videojuego;
         this.stock = stock;
-        listaVideojuegos=new ArrayList<>();
+        listaVideojuegos.add(this);
     }
 
     public String getId_videojuego() {
         return id_videojuego;
     }
 
-    public void setId_videojuego(String id_videojuego) {
-        this.id_videojuego = id_videojuego;
+    public void setId_videojuego() {
+        this.id_videojuego = "GAME" + contadorId;
     }
 
     public String getNombre() {
@@ -110,7 +113,6 @@ public class Videojuego {
                 ", empresa='" + empresa + '\'' +
                 ", tipo_videojuego='" + tipo_videojuego + '\'' +
                 ", stock=" + stock +
-                ", listaVideojuegos=" + listaVideojuegos +
                 '}';
     }
 }
