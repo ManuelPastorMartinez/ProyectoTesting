@@ -30,12 +30,8 @@ public class Videojuego {
         listaVideojuegos.add(this);
     }
 
-    public String getId_videojuego() {
-        return id_videojuego;
-    }
-
     public void setId_videojuego() {
-        this.id_videojuego = "GAME" + contadorId;
+        this.id_videojuego = "GAME" + contadorId++;
     }
 
     public String getNombre() {
@@ -62,11 +58,11 @@ public class Videojuego {
         this.precio = precio;
     }
 
-    public Date getFecha_creacion() {
+    public LocalDate getFecha_creacion() {
         return fecha_creacion;
     }
 
-    public void setFecha_creacion(Date fecha_creacion) {
+    public void setFecha_creacion(LocalDate fecha_creacion) {
         this.fecha_creacion = fecha_creacion;
     }
 
@@ -92,14 +88,14 @@ public class Videojuego {
 
     public void setStock(int stock) {
         this.stock = stock;
+        if (this.stock <= 0) {
+            listaVideojuegos.remove(this);
+            System.out.println("Videojuego " + nombre + " eliminado del catálogo por falta de stock.");
+        }
     }
 
-    public ArrayList<String> getListaVideojuegos() {
+    public static ArrayList<Videojuego> getListaVideojuegos() {
         return listaVideojuegos;
-    }
-
-    public void setListaVideojuegos(ArrayList<String> listaVideojuegos) {
-        this.listaVideojuegos = listaVideojuegos;
     }
 
     @Override
