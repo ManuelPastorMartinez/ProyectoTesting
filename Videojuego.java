@@ -18,12 +18,12 @@ public class Videojuego {
     private int stock;
     protected static ArrayList<Videojuego>listaVideojuegos = new ArrayList<>();
 
-    public Videojuego(String nombre, String plataforma, double precio, LocalDate fecha_creacion, String empresa, String tipo_videojuego, int stock) {
+    public Videojuego(String nombre, String plataforma, double precio, String fecha_creacion, String empresa, String tipo_videojuego, int stock) {
         setId_videojuego();
         this.nombre = nombre;
         this.plataforma = plataforma;
         this.precio = precio;
-        this.fecha_creacion = fecha_creacion;
+        this.fecha_creacion = LocalDate.parse(fecha_creacion);
         this.empresa = empresa;
         this.tipo_videojuego = tipo_videojuego;
         this.stock = stock;
@@ -96,6 +96,12 @@ public class Videojuego {
 
     public static ArrayList<Videojuego> getListaVideojuegos() {
         return listaVideojuegos;
+    }
+
+    public static void mostrarListaJuegos() {
+        for (Videojuego juego : listaVideojuegos) {
+            System.out.println("[*]" + juego);
+        }
     }
 
     @Override
