@@ -16,20 +16,20 @@ public class MutxamelStore {
         System.out.println("Lista Videojuegos:");
         Videojuego.mostrarListaJuegos();
 
-        System.out.println("test 4: Eliminación Videojuego con setStock negativo");
-        v3.setStock(-1);
-        System.out.println("Lista después de eliminar por stock <= 0:");
+        System.out.println("test 4: Eliminación Videojuego");
+        ACNH.setStock(-1);
+        System.out.println("Lista actualizada: ");
         Videojuego.mostrarListaJuegos();
 
-        System.out.println("\n=== TEST 5: Nombre null ===");
-        Videojuego v4 = new Videojuego(null, "Switch", 40.0, "2023-01-01", "EmpresaA", "Aventura", 5);
-        System.out.println(v4);
+        System.out.println("test 5: Nombre null");
+        Videojuego RDR2 = new Videojuego(null, "Ps4", 39.99, "2018/10/26", "Rockstar", "Acción", 45);
+        System.out.println(RDR2);
 
-        System.out.println("\n=== TEST 6: Eliminar dos veces por stock ===");
-        Videojuego v5 = new Videojuego("JuegoPrueba", "Xbox", 30.0, "2023-01-01", "EmpresaB", "Shooter", 1);
-        v5.setStock(0);   // se elimina
-        v5.setStock(0);   // intentar eliminar otra vez
-        System.out.println("Lista final:");
+        System.out.println("test 6: Eliminar dos veces un Videojuego mediante el stock");
+        Videojuego GOW = new Videojuego("God of War", "Xbox", 30.0, "2023-01-01", "EmpresaB", "Shooter", 1);
+        GOW.setStock(0);
+        GOW.setStock(0);
+        System.out.println("Lista actualizada:");
         Videojuego.mostrarListaJuegos();
 
 
